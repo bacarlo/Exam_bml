@@ -1,18 +1,17 @@
-// TransactionList.js
 import React from 'react';
+import Transaction from './Transaction';
 
-const TransactionList = ({ transactions }) => {
+const TransactionList = ({ transactions, onDelete }) => {
   return (
     <div>
       <h2>Liste des Transactions</h2>
-      <ul>
+      <ul className="list">
         {transactions.map((transaction) => (
-          <li key={transaction.id}>
-            {transaction.description}: {transaction.amount}
-          </li>
+          <Transaction key={transaction.id} transaction={transaction} onDelete={onDelete} />
         ))}
       </ul>
     </div>
   );
 };
+
 export default TransactionList;
